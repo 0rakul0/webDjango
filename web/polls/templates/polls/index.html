@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Front-End | 0rakul0</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#section1">Header</a></li>
+        <li><a href="#section2">Main</a></li>
+        <li><a href="#section3">Galeria</a></li>
+        <li><a href="#section4">Contatos</a></li>
+        <li><a href="#footer">Footer</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+
+    <section>
+      <h1>{% if lista_questoes_criadas %}</h1>
+      <ul>
+        {% for questao in lista_questoes_criadas %}
+        <li>
+          <a href="{% url 'polls:vote' question.id}">
+            {{ questao.question_texto }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+       <p>Nenhuma questão criada</p>
+      {% endif %}
+    </section>
+
+  </main>
+  <footer id="footer">
+    <p>&copy; 0rakul0</p>
+  </footer>
+</body>
+
+</html>
